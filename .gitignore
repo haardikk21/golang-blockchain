@@ -1,3 +1,4 @@
 ./golang-blockchain
 golang-blockchain
-blockchain.db
+*.db
+wallet.dat
