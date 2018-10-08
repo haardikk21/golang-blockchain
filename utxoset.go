@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/hex"
+	"fmt"
 	"log"
 
 	"github.com/boltdb/bolt"
@@ -62,7 +63,6 @@ func (u UTXOSet) Reindex() {
 	}
 
 	UTXO := u.Blockchain.FindUTXO()
-
 	err = db.Update(func(tx *bolt.Tx) error {
 		b := tx.Bucket(bucketName)
 
@@ -84,6 +84,7 @@ func (u UTXOSet) Reindex() {
 		log.Panic(err)
 	}
 
+	fmt.Println("Reindexed UTXO set")
 }
 
 // FindSpendableOutputs finds and returns unspent outputs
